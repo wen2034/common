@@ -1,8 +1,8 @@
 package org.zengxw.common;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * 集合处理
@@ -18,21 +18,20 @@ public class Collect {
      * @return 结果list
      */
     public static List<Integer> listReduce(List<Integer> sourceList, List<Integer> reduceList) {
-        sourceList = sourceList.stream().sorted().collect(Collectors.toList());
-        reduceList = reduceList.stream().sorted().collect(Collectors.toList());
-
-        List<Integer> tmpList = new ArrayList<>();
         Integer[] tmpSource = new Integer[sourceList.size()];
         sourceList.toArray(tmpSource);
+        Arrays.sort(tmpSource);
 
-        Integer[] tmpRemove = new Integer[reduceList.size()];
-        reduceList.toArray(tmpRemove);
+        Integer[] tmpReduce = new Integer[reduceList.size()];
+        reduceList.toArray(tmpReduce);
+        Arrays.sort(tmpReduce);
 
+        List<Integer> tmpList = new ArrayList<Integer>();
         int m = 0;
         int n = 0;
-        while(n < tmpRemove.length) {
+        while(n < tmpReduce.length) {
             int m1 = tmpSource[m];
-            int n1 = tmpRemove[n];
+            int n1 = tmpReduce[n];
             if(m1 == n1) {
                 m++;
                 n++;
