@@ -1,4 +1,4 @@
-package org.zengxw.common;
+package org.zengxw.common.utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,7 +9,7 @@ import java.util.List;
  * @author zengxw
  * @version 2022/1/16
  */
-public class Collect {
+public class CollectUtils {
 
     /**
      * list差集
